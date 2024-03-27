@@ -1,18 +1,36 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 
-  return (
-    <>
-     <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
-  )
+import SignUp from './components/authentication/Signup';
+import Login from './components/authentication/Login';
+import Home from './components/authentication/Home';
+
+
+function App() {
+  const router = createBrowserRouter([
+
+    {
+      path: "/",
+      element: <Home />
+    },
+    {
+      path: "/signup",
+      element: <SignUp />
+    },
+    {
+      path: "/login",
+      element: <Login />
+    },
+
+  ]);
+  return <RouterProvider router={router} />;
+
 }
 
 export default App
